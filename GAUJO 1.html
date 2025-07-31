@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAUJO Consultoria Empresarial - Sua Parceria Estratégica</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary-blue: #0056B3; /* Royal Blue from logo */
+            --color-secondary-grey: #A0A0A0; /* Metallic Grey from logo */
+            --color-gradient-start: #0056B3;
+            --color-gradient-end: #A0A0A0;
+        }
+
+        /* Custom gradient for buttons and titles */
+        .bg-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+        }
+        .text-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* Custom fonts */
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004494;
+        }
+
+        /* WhatsApp button pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
+
+        /* Dropdown menu styling */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            top: 100%; /* Position below the parent link */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+            color: var(--color-primary-blue);
+        }
+
+        /* Mobile menu specific styles */
+        .mobile-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 90;
+            flex-direction: column;
+            padding-bottom: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a, .mobile-menu .dropdown-toggle-mobile {
+            padding: 1rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .dropdown-submenu-mobile {
+            display: none;
+            flex-direction: column;
+            padding-left: 1.5rem;
+            background-color: #f9f9f9;
+        }
+
+        .mobile-menu .dropdown-submenu-mobile.active {
+            display: flex;
+        }
+
+        .mobile-menu .dropdown-submenu-mobile a {
+            padding: 0.75rem 1.5rem;
+            border-bottom: none;
+        }
+
+        /* Carousel specific styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%; /* Each slide takes full width */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .carousel-slide img {
+            max-height: 250px; /* Adjust as needed */
+            width: auto;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 20;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-prev {
+            left: 1rem;
+        }
+
+        .carousel-next {
+            right: 1rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: var(--color-primary-blue);
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-800 bg-white">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-md fixed w-full z-50 top-0">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center">
+                <img src="https://placehold.co/150x40/0056B3/FFFFFF?text=GAUJO+LOGO" alt="GAUJO Consultoria Empresarial Logo" class="h-10 mr-2" onerror="this.onerror=null;this.src='https://placehold.co/150x40/A0A0A0/FFFFFF?text=GAUJO+LOGO';">
+                <span class="text-2xl font-bold text-gradient-ga font-playfair hidden sm:block">GAUJO Consultoria Empresarial</span>
+            </a>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center space-x-8">
+                <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Início</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Sobre</a></li>
+                <li class="relative dropdown">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium flex items-center">
+                        Nossos Serviços <i class="fas fa-chevron-down text-xs ml-2"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#servicos-administrativos">Serviços Administrativos</a></li>
+                        <li><a href="#servicos-vistos">Serviços Relacionados a Vistos e Passaporte</a></li>
+                        <li><a href="#servicos-pf">Serviços para Pessoa Física (PF)</a></li>
+                        <li><a href="#regularizacao-imoveis">Regularização de Imóveis</a></li>
+                        <li><a href="#servicos-cobranca">Serviços de Cobrança</a></li>
+                        <li><a href="#servicos-mei">Serviços para MEI</a></li>
+                        <li><a href="#servicos-tecnologia">Serviços de Tecnologia</a></li>
+                        <li><a href="#assessoria-importacao-exportacao">Assessoria em Importação e Exportação</a></li>
+                        <li><a href="#assessoria-licitacoes">Assessoria para Licitações</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <a href="#home" class="font-medium">Início</a>
+            <a href="#about" class="font-medium">Sobre</a>
+            <div class="dropdown-toggle-mobile font-medium flex justify-between items-center cursor-pointer">
+                Nossos Serviços <i class="fas fa-chevron-down text-xs"></i>
+            </div>
+            <ul class="dropdown-submenu-mobile">
+                <li><a href="#servicos-administrativos">Serviços Administrativos</a></li>
+                <li><a href="#servicos-vistos">Serviços Relacionados a Vistos e Passaporte</a></li>
+                <li><a href="#servicos-pf">Serviços para Pessoa Física (PF)</a></li>
+                <li><a href="#regularizacao-imoveis">Regularização de Imóveis</a></li>
+                <li><a href="#servicos-cobranca">Serviços de Cobrança</a></li>
+                <li><a href="#servicos-mei">Serviços para MEI</a></li>
+                <li><a href="#servicos-tecnologia">Serviços de Tecnologia</a></li>
+                <li><a href="#assessoria-importacao-exportacao">Assessoria em Importação e Exportação</a></li>
+                <li><a href="#assessoria-licitacoes">Assessoria para Licitações</a></li>
+            </ul>
+            <a href="#contact" class="font-medium">Contato</a>
+        </div>
+    </header>
+
+    <main class="mt-20">
+        <!-- Hero Section with Carousel -->
+        <section id="home" class="relative bg-white py-12 md:py-20 flex items-center justify-center min-h-screen-75 overflow-hidden">
+            <div class="container mx-auto px-6 text-center z-10 carousel-container" data-aos="fade-up" data-aos-duration="1000">
+                <div class="carousel-slides" id="carousel-slides">
+                    <!-- Slide 1: Serviços Administrativos -->
+                    <div class="carousel-slide">
+                        <img src="https://www.thelinkdirectories.co.uk/wp-content/uploads/2024/11/What-Makes-a-Great-Local-Business.jpg" alt="Serviços Administrativos" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Otimize sua gestão administrativa
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Simplificamos processos, garantindo eficiência e organização para o seu negócio prosperar.
+                        </p>
+                        <a href="#servicos-administrativos" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Serviços Administrativos
+                        </a>
+                    </div>
+
+                    <!-- Slide 2: Vistos e Passaporte -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/A0A0A0/FFFFFF?text=Vistos+e+Passaporte" alt="Vistos e Passaporte" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Viagens sem preocupações
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Assessoria completa para vistos e passaportes, tornando seus trâmites rápidos e seguros.
+                        </p>
+                        <a href="#servicos-vistos" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Vistos e Passaporte
+                        </a>
+                    </div>
+
+                    <!-- Slide 3: Serviços para Pessoa Física -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/0056B3/FFFFFF?text=Pessoa+Física" alt="Serviços para Pessoa Física" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Soluções personalizadas para você
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Cuidamos das suas necessidades pessoais com discrição e eficiência, do planejamento à execução.
+                        </p>
+                        <a href="#servicos-pf" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Serviços PF
+                        </a>
+                    </div>
+
+                    <!-- Slide 4: Regularização de Imóveis -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/A0A0A0/FFFFFF?text=Regularização+Imóveis" alt="Regularização de Imóveis" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Imóveis regularizados, sua tranquilidade
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Assessoria completa para garantir a legalidade e segurança de seus bens imobiliários.
+                        </p>
+                        <a href="#regularizacao-imoveis" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Regularização de Imóveis
+                        </a>
+                    </div>
+
+                    <!-- Slide 5: Serviços de Cobrança -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/0056B3/FFFFFF?text=Serviços+Cobrança" alt="Serviços de Cobrança" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Recupere seus créditos com estratégia
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Métodos eficazes e profissionais para a recuperação de dívidas, preservando seus relacionamentos.
+                        </p>
+                        <a href="#servicos-cobranca" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Serviços de Cobrança
+                        </a>
+                    </div>
+
+                    <!-- Slide 6: Serviços para MEI -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/A0A0A0/FFFFFF?text=Serviços+MEI" alt="Serviços para MEI" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Suporte completo para o MEI
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Da abertura à gestão fiscal, oferecemos todo o apoio que o microempreendedor individual precisa.
+                        </p>
+                        <a href="#servicos-mei" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Serviços para MEI
+                        </a>
+                    </div>
+
+                    <!-- Slide 7: Serviços de Tecnologia -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/0056B3/FFFFFF?text=Serviços+Tecnologia" alt="Serviços de Tecnologia" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Inovação tecnológica ao seu alcance
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Criação de sites, implantação de sistemas e suporte para modernizar sua presença digital.
+                        </p>
+                        <a href="#servicos-tecnologia" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Serviços de Tecnologia
+                        </a>
+                    </div>
+
+                    <!-- Slide 8: Assessoria em Importação e Exportação -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/A0A0A0/FFFFFF?text=Importação+e+Exportação" alt="Assessoria em Importação e Exportação" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Comércio internacional simplificado
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Navegue pelo mercado global com nossa assessoria especializada em importação e exportação.
+                        </p>
+                        <a href="#assessoria-importacao-exportacao" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Importação e Exportação
+                        </a>
+                    </div>
+
+                    <!-- Slide 9: Assessoria para Licitações -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/400x250/0056B3/FFFFFF?text=Assessoria+Licitações" alt="Assessoria para Licitações" class="mb-4 rounded-lg shadow-md">
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold leading-tight text-gradient-ga mb-4">
+                            Conquiste licitações com confiança
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 font-montserrat">
+                            Suporte completo para sua empresa participar e vencer processos licitatórios.
+                        </p>
+                        <a href="#assessoria-licitacoes" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                            Saiba mais sobre Licitações
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation -->
+                <button class="carousel-nav-button carousel-prev" id="carousel-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-button carousel-next" id="carousel-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Carousel Dots -->
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+            <!-- Optional: Subtle background pattern or element for sophistication -->
+            <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%230056B3\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 0h30v30H0V0zm30 30h30v30H30V30z\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-gradient-ga mb-12" data-aos="fade-up">Sobre a GAUJO Consultoria Empresarial</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                    <div class="md:w-1/2" data-aos="fade-right" data-aos-delay="200">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Na GAUJO Consultoria Empresarial, somos movidos pela paixão em oferecer excelência em consultoria. Com uma equipe de especialistas dedicados, combinamos conhecimento aprofundado com uma abordagem inovadora para fornecer soluções que realmente fazem a diferença para nossos clientes.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Nossa missão é simplificar processos complexos, otimizar recursos e garantir que você alcance seus objetivos com segurança e eficiência. Seja qual for o seu desafio, estamos prontos para ser seu parceiro confiável.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="400">
+                        <!-- Placeholder image, replace with actual logo or relevant image if available -->
+                        <img src="https://placehold.co/500x300/e0e0e0/555555?text=Sobre+Nós" alt="Sobre GAUJO Consultoria Empresarial" class="rounded-lg shadow-xl max-w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview Section -->
+        <section id="services-overview" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-gradient-ga mb-12" data-aos="fade-up">Nossos serviços</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Block 1: Serviços Administrativos -->
+                    <div id="servicos-administrativos" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-file-alt text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Serviços Administrativos</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Otimize a gestão do seu negócio com nossos serviços administrativos completos, garantindo eficiência e organização.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 2: Serviços Relacionados a Vistos e Passaporte -->
+                    <div id="servicos-vistos" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-plane-departure text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Vistos e Passaporte</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Facilitamos seus trâmites de vistos e passaportes, garantindo agilidade e conformidade para suas viagens.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 3: Serviços para Pessoa Física (PF) -->
+                    <div id="servicos-pf" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-user-tie text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Serviços para Pessoa Física</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Assessoria completa para suas necessidades pessoais, desde declarações a regularizações diversas.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 4: Regularização de Imóveis -->
+                    <div id="regularizacao-imoveis" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-building text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Regularização de Imóveis</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Garanta a legalidade e segurança de seus bens com nossos serviços especializados em regularização imobiliária.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 5: Serviços de Cobrança -->
+                    <div id="servicos-cobranca" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-money-check-alt text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Serviços de Cobrança</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Recupere seus créditos de forma eficaz e profissional, mantendo o bom relacionamento com seus clientes.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 6: Serviços para MEI -->
+                    <div id="servicos-mei" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-briefcase text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Serviços para MEI</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Suporte especializado para Microempreendedores Individuais, da abertura à gestão fiscal.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 7: Serviços de Tecnologia -->
+                    <div id="servicos-tecnologia" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-laptop-code text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Serviços de Tecnologia</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Criação de sites, implantação de sistemas e suporte técnico para modernizar sua presença digital.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 8: Assessoria em Importação e Exportação -->
+                    <div id="assessoria-importacao-exportacao" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-globe-americas text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Assessoria em Importação e Exportação</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Navegue pelo comércio internacional com segurança e eficiência, com nossa assessoria especializada.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Block 9: Assessoria para Licitações -->
+                    <div id="assessoria-licitacoes" class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-gavel text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-playfair font-semibold text-gray-800">Assessoria para Licitações</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Oferecemos suporte completo para empresas que desejam participar e vencer processos licitatórios.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Differentiators/Impact Section -->
+        <section class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gradient-ga mb-12" data-aos="fade-up">Por Que Escolher a GAUJO Consultoria Empresarial?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-lightbulb text-5xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold font-playfair mb-3">Soluções Inovadoras</h3>
+                        <p class="text-gray-700">Abordagens criativas e eficientes para seus desafios mais complexos.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-handshake text-5xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold font-playfair mb-3">Parceria Confiável</h3>
+                        <p class="text-gray-700">Construímos relacionamentos sólidos baseados em confiança e transparência.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-chart-line text-5xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold font-playfair mb-3">Resultados Comprovados</h3>
+                        <p class="text-gray-700">Foco em resultados mensuráveis que impulsionam seu crescimento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gradient-ga mb-12" data-aos="fade-up">Fale conosco</h2>
+                <div class="flex flex-col items-center space-y-6 text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i> [Seu Endereço Completo Aqui]
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fas fa-envelope text-blue-600 mr-3"></i> <a href="mailto:contato@gaujoconsulting.com" class="hover:text-blue-600 transition duration-300">contato@gaujoconsulting.com</a>
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fab fa-whatsapp text-blue-600 mr-3"></i> <a href="https://wa.me/55XXYYYYYYYYY" target="_blank" class="hover:text-blue-600 transition duration-300">(XX) YYYYY-YYYY</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center md:flex md:justify-between md:items-center">
+            <div class="mb-6 md:mb-0">
+                <h3 class="text-2xl font-playfair font-bold text-gradient-ga mb-2">GAUJO Consultoria Empresarial</h3>
+                <p class="text-sm text-gray-400">&copy; 2025 GAUJO Consultoria Empresarial. Todos os direitos reservados.</p>
+                <p class="text-sm text-gray-400 mt-1">Operando desde 2009.</p>
+                <p class="text-sm text-gray-400 mt-1">Desenvolvido por: Isaias Heber, GAUJO.</p>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                <a href="#services-overview" class="text-gray-300 hover:text-white transition duration-300">Nossos Serviços</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/55XXYYYYYYYYY" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl animate-pulse-whatsapp transition duration-300 ease-in-out z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, /* Whether animation should happen only once - while scrolling down */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileDropdownToggle = document.querySelector('.dropdown-toggle-mobile');
+        const mobileDropdownSubmenu = document.querySelector('.dropdown-submenu-mobile');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileDropdownToggle.addEventListener('click', () => {
+            mobileDropdownSubmenu.classList.toggle('active');
+            mobileDropdownToggle.querySelector('i').classList.toggle('fa-chevron-down');
+            mobileDropdownToggle.querySelector('i').classList.toggle('fa-chevron-up');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileDropdownSubmenu.classList.remove('active');
+                mobileDropdownToggle.querySelector('i').classList.remove('fa-chevron-up');
+                mobileDropdownToggle.querySelector('i').classList.add('fa-chevron-down');
+            });
+        });
+
+        // Close dropdown when clicking outside (for desktop dropdown)
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+
+        // Toggle desktop dropdown on click for better UX (optional, hover is already active)
+        const desktopDropdown = document.querySelector('.dropdown > a');
+        if (desktopDropdown) {
+            desktopDropdown.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                this.parentElement.classList.toggle('active');
+            });
+        }
+
+        // Carousel functionality
+        const carouselSlides = document.getElementById('carousel-slides');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevButton = document.getElementById('carousel-prev');
+        const nextButton = document.getElementById('carousel-next');
+        const dotsContainer = document.getElementById('carousel-dots');
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetInterval();
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function goToSlide(index) {
+            if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
+            }
+            carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function startInterval() {
+            slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        // Event listeners for carousel navigation
+        prevButton.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        // Pause carousel on hover
+        const heroSection = document.getElementById('home');
+        heroSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        heroSection.addEventListener('mouseleave', startInterval);
+
+        // Initial start of the carousel
+        startInterval();
+    </script>
+</body>
+</html>

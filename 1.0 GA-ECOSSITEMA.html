@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecossistema 360° - GAUJO Consultoria Empresarial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary-blue: #0056B3; /* Royal Blue from logo */
+            --color-secondary-grey: #A0A0A0; /* Metallic Grey from logo */
+            --color-gradient-start: #0056B3;
+            --color-gradient-end: #A0A0A0;
+        }
+
+        /* Custom gradient for buttons and titles */
+        .bg-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+        }
+        .text-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* Custom fonts */
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004494;
+        }
+
+        /* WhatsApp button pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero section static image */
+        .hero-static-image {
+            width: 100%;
+            height: 400px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            filter: brightness(0.7); /* Slightly darken the image for text readability */
+        }
+
+        /* Alert box styling */
+        .alert-box {
+            @apply p-4 rounded-lg text-sm mb-6;
+        }
+        .alert-info {
+            @apply bg-blue-100 text-blue-800 border border-blue-200;
+        }
+
+        /* Partner card specific styles */
+        .partner-card {
+            @apply p-8 bg-white rounded-lg shadow-md flex flex-col items-center text-center;
+            min-height: 380px; /* Define a altura mínima para consistência */
+            justify-content: space-between; /* Distribui o conteúdo verticalmente */
+            /* Transições removidas para evitar conflitos com display: none */
+        }
+        .partner-logo {
+            @apply h-24 w-auto object-contain mb-6; /* Adjust height/width as needed */
+        }
+        .partner-whatsapp-btn {
+            @apply inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out mt-4;
+        }
+        .partner-social-icon {
+            @apply text-gray-500 hover:text-blue-600 transition duration-300 text-2xl;
+        }
+
+        /* Print specific styles */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+            }
+            h1, h2, h3, h4, p, ul, li {
+                color: #000 !important; /* Ensure black text for printing */
+            }
+            .text-gradient-ga {
+                -webkit-text-fill-color: #000 !important; /* Ensure gradient text is black */
+                color: #000 !important;
+            }
+            .bg-gradient-ga {
+                background-image: none !important;
+                background-color: #0056B3 !important; /* Solid color for print */
+                color: #fff !important;
+            }
+            .shadow-md, .shadow-xl {
+                box-shadow: none !important; /* Remove shadows for cleaner print */
+            }
+            .rounded-lg, .rounded-full {
+                border-radius: 0 !important; /* Remove rounded corners for cleaner print */
+            }
+            .container {
+                max-width: none !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+            section {
+                padding: 1cm !important; /* Add some padding to sections for print */
+            }
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                filter: none !important; /* Remove brightness filter for print */
+            }
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-800 bg-white">
+
+    <!-- Main content starts directly -->
+    <main>
+        <!-- Hero Section para Ecossistema 360° -->
+        <section id="hero-partners" class="relative bg-white pt-20 pb-12 md:pt-32 md:pb-20 flex flex-col items-center justify-center min-h-screen-75 overflow-hidden">
+            <img src="https://placehold.co/1200x400/A0A0A0/FFFFFF?text=Ecossistema+360" alt="Fundo abstrato com engrenagens e conexão para Ecossistema 360" class="absolute inset-0 hero-static-image">
+            <div class="container mx-auto px-6 text-center z-10 text-white" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold leading-tight mb-6">
+                    Ecossistema 360°
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 font-montserrat">
+                    Construindo o sucesso do seu negócio com as melhores parcerias.
+                </p>
+            </div>
+        </section>
+
+        <!-- Conteúdo dos Parceiros -->
+        <section id="partners-content" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-gradient-ga mb-12" data-aos="fade-up">Nossa rede de excelência</h2>
+
+                <div class="alert-box alert-info text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Estes parceiros fazem parte da visão 360° da GAUJO e podem ser contratados diretamente no pacote de serviços do cliente, garantindo uma solução completa e integrada para o seu negócio.
+                </div>
+
+                <!-- Filtro por Segmento -->
+                <div class="mb-12 text-center" data-aos="fade-up" data-aos-delay="150">
+                    <label for="segmentFilter" class="block text-gray-700 text-lg font-semibold mb-3">Filtrar por Segmento de Mercado:</label>
+                    <select id="segmentFilter" class="inline-block w-full md:w-1/2 lg:w-1/3 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+                        <option value="all">Todos os Segmentos</option>
+                        <option value="Agronegócio e Agricultura">Agronegócio e Agricultura</option>
+                        <option value="Alimentação e Bebidas">Alimentação e Bebidas</option>
+                        <option value="Automotivo">Automotivo</option>
+                        <option value="Construção Civil e Imobiliário">Construção Civil e Imobiliário</option>
+                        <option value="Educação e Treinamento">Educação e Treinamento</option>
+                        <option value="Energia e Utilidades">Energia e Utilidades</option>
+                        <option value="Financeiro e Seguros">Financeiro e Seguros</option>
+                        <option value="Indústria">Indústria</option>
+                        <option value="Saúde e Bem-estar">Saúde e Bem-estar</option>
+                        <option value="Tecnologia e Telecomunicações">Tecnologia e Telecomunicações</option>
+                        <option value="Comércio e Varejo">Comércio e Varejo</option>
+                        <option value="Transporte e Logística">Transporte e Logística</option>
+                        <option value="Turismo e Entretenimento">Turismo e Entretenimento</option>
+                        <option value="Serviços Profissionais e Corporativos">Serviços Profissionais e Corporativos</option>
+                        <option value="Arte, Cultura e Design">Arte, Cultura e Design</option>
+                        <option value="Setor Público e Organizações Sociais">Setor Público e Organizações Sociais</option>
+                    </select>
+                </div>
+
+                <div id="partners-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Parceiro 1: LINKONT CONTABILIDADE DIGITAL -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="200" data-segment="Financeiro e Seguros">
+                        <img src="https://placehold.co/150x80/0056B3/FFFFFF?text=LINKONT+LOGO" alt="Logo da LINKONT Contabilidade Digital" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">LINKONT Contabilidade Digital</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Especialistas em contabilidade digital para MEIs e pequenas empresas, oferecendo soluções fiscais e burocráticas simplificadas e eficientes.
+                        </p>
+                        <a href="https://wa.me/5511920033199?text=Olá! Gostaria de saber mais sobre os serviços da Linkont Contabilidae Digital." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato LINKONT
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.linkont.com.br" target="_blank" class="partner-social-icon" title="Visitar Site LINKONT">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/linkont" target="_blank" class="partner-social-icon" title="Instagram LINKONT">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/linkont" target="_blank" class="partner-social-icon" title="Facebook LINKONT">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/linkont" target="_blank" class="partner-social-icon" title="LinkedIn LINKONT">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/linkont" target="_blank" class="partner-social-icon" title="X (Twitter) LINKONT">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/linkont" target="_blank" class="partner-social-icon" title="YouTube LINKONT">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceiro 2: PHL Advisory -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="300" data-segment="Serviços Profissionais e Corporativos">
+                        <img src="https://placehold.co/150x80/A0A0A0/FFFFFF?text=PHL+LOGO" alt="Logo da PHL Advisory" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">PHL Advisory</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Consultoria estratégica em gestão empresarial, auxiliando no planejamento, otimização de processos e crescimento sustentável do seu negócio.
+                        </p>
+                        <a href="https://wa.me/5511988888888?text=Olá! Gostaria de saber mais sobre os serviços da PHL Advisory." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato PHL Advisory
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.phladvice.com.br" target="_blank" class="partner-social-icon" title="Visitar Site PHL Advisory">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/phladvisory" target="_blank" class="partner-social-icon" title="Instagram PHL Advisory">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/phladvisory" target="_blank" class="partner-social-icon" title="Facebook PHL Advisory">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/phladvisory" target="_blank" class="partner-social-icon" title="LinkedIn PHL Advisory">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/phladvisory" target="_blank" class="partner-social-icon" title="X (Twitter) PHL Advisory">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/phladvisory" target="_blank" class="partner-social-icon" title="YouTube PHL Advisory">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceiro 3: Juscorporativo -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="400" data-segment="Serviços Profissionais e Corporativos">
+                        <img src="https://placehold.co/150x80/0056B3/FFFFFF?text=Juscorporativo+LOGO" alt="Logo da Juscorporativo" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">Juscorporativo</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Assessoria jurídica especializada em direito empresarial, contratos e conformidade legal, garantindo a segurança jurídica da sua empresa.
+                        </p>
+                        <a href="https://wa.me/5511977777777?text=Olá! Gostaria de saber mais sobre os serviços da Juscorporativo." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato Juscorporativo
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.juscorporativo.com.br" target="_blank" class="partner-social-icon" title="Visitar Site Juscorporativo">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/juscorporativo" target="_blank" class="partner-social-icon" title="Instagram Juscorporativo">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/juscorporativo" target="_blank" class="partner-social-icon" title="Facebook Juscorporativo">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/juscorporativo" target="_blank" class="partner-social-icon" title="LinkedIn Juscorporativo">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/juscorporativo" target="_blank" class="partner-social-icon" title="X (Twitter) Juscorporativo">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/juscorporativo" target="_blank" class="partner-social-icon" title="YouTube Juscorporativo">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceiro 4: MFB Intermediação e Cobranças -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="500" data-segment="Financeiro e Seguros">
+                        <img src="https://placehold.co/150x80/A0A0A0/FFFFFF?text=MFB+LOGO" alt="Logo da MFB Intermediação e Cobranças" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">MFB Intermediação e Cobranças</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Serviços especializados em intermediação e cobrança, otimizando a recuperação de créditos e a saúde financeira do seu negócio.
+                        </p>
+                        <a href="https://wa.me/5511966666666?text=Olá! Gostaria de saber mais sobre os serviços da MFB Intermediação e Cobranças." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato MFB
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.mfbcobrancas.com.br" target="_blank" class="partner-social-icon" title="Visitar Site MFB">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/mfbcobrancas" target="_blank" class="partner-social-icon" title="Instagram MFB">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/mfbcobrancas" target="_blank" class="partner-social-icon" title="Facebook MFB">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/mfbcobrancas" target="_blank" class="partner-social-icon" title="LinkedIn MFB">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/mfbcobrancas" target="_blank" class="partner-social-icon" title="X (Twitter) MFB">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/mfbcobrancas" target="_blank" class="partner-social-icon" title="YouTube MFB">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceiro 5: 2GB Office Solutions -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="600" data-segment="Serviços Profissionais e Corporativos">
+                        <img src="https://placehold.co/150x80/0056B3/FFFFFF?text=2GB+LOGO" alt="Logo da 2GB Office Solutions" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">2GB Office Solutions</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Soluções completas em serviços administrativos e de escritório, otimizando a rotina e a produtividade da sua empresa.
+                        </p>
+                        <a href="https://wa.me/5511955555555?text=Olá! Gostaria de saber mais sobre os serviços da 2GB Office Solutions." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato 2GB Office
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.2gboffice.com" target="_blank" class="partner-social-icon" title="Visitar Site 2GB Office Solutions">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/2gboffice" target="_blank" class="partner-social-icon" title="Instagram 2GB Office Solutions">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/2gboffice" target="_blank" class="partner-social-icon" title="Facebook 2GB Office Solutions">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/2gboffice" target="_blank" class="partner-social-icon" title="LinkedIn 2GB Office Solutions">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/2gboffice" target="_blank" class="partner-social-icon" title="X (Twitter) 2GB Office Solutions">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/2gboffice" target="_blank" class="partner-social-icon" title="YouTube 2GB Office Solutions">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceiro 6: DCAEN Assessoria -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="700" data-segment="Serviços Profissionais e Corporativos">
+                        <img src="https://placehold.co/150x80/A0A0A0/FFFFFF?text=DCAEN+LOGO" alt="Logo da DCAEN Assessoria" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">DCAEN Assessoria</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Assessoria especializada para Microempreendedores Individuais (MEI), garantindo conformidade e suporte completo para o seu negócio.
+                        </p>
+                        <a href="https://wa.me/5511944444444?text=Olá! Gostaria de saber mais sobre os serviços da DCAEN Assessoria." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato DCAEN
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.dcaen.com.br" target="_blank" class="partner-social-icon" title="Visitar Site DCAEN Assessoria">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/dcaenassessoria" target="_blank" class="partner-social-icon" title="Instagram DCAEN Assessoria">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/dcaenassessoria" target="_blank" class="partner-social-icon" title="Facebook DCAEN Assessoria">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/dcaenassessoria" target="_blank" class="partner-social-icon" title="LinkedIn DCAEN Assessoria">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/dcaenassessoria" target="_blank" class="partner-social-icon" title="X (Twitter) DCAEN Assessoria">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/dcaenassessoria" target="_blank" class="partner-social-icon" title="YouTube DCAEN Assessoria">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceiro 7: VH International Travel Solutions -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="800" data-segment="Turismo e Entretenimento">
+                        <img src="https://placehold.co/150x80/0056B3/FFFFFF?text=VH+LOGO" alt="Logo da VH International Travel Solutions" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">VH International Travel Solutions</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Consultoria especializada em vistos e passaportes, simplificando o processo para suas viagens de negócios ou lazer.
+                        </p>
+                        <a href="https://wa.me/5511933333333?text=Olá! Gostaria de saber mais sobre os serviços da VH International Travel Solutions." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato VH Travel
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.vhtsolutions.com" target="_blank" class="partner-social-icon" title="Visitar Site VH International Travel Solutions">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/vhtravelsolutions" target="_blank" class="partner-social-icon" title="Instagram VH International Travel Solutions">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/vhtravelsolutions" target="_blank" class="partner-social-icon" title="Facebook VH International Travel Solutions">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/vhtravelsolutions" target="_blank" class="partner-social-icon" title="LinkedIn VH International Travel Solutions">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/vhtravelsolutions" target="_blank" class="partner-social-icon" title="X (Twitter) VH International Travel Solutions">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/vhtravelsolutions" target="_blank" class="partner-social-icon" title="YouTube VH International Travel Solutions">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceiro 8: VKO Consulting -->
+                    <div class="partner-card" data-aos="fade-up" data-aos-delay="900" data-segment="Tecnologia e Telecomunicações">
+                        <img src="https://placehold.co/150x80/A0A0A0/FFFFFF?text=VKO+LOGO" alt="Logo da VKO Consulting" class="partner-logo">
+                        <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">VKO Consulting</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Consultoria em TI e soluções tecnológicas, ajudando empresas a otimizar sua infraestrutura e processos digitais.
+                        </p>
+                        <a href="https://wa.me/5511922222222?text=Olá! Gostaria de saber mais sobre os serviços da VKO Consulting." target="_blank" class="partner-whatsapp-btn">
+                            <i class="fab fa-whatsapp mr-2"></i> Contato VKO Consulting
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://www.vkotech.com.br" target="_blank" class="partner-social-icon" title="Visitar Site VKO Consulting">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://instagram.com/vkoconsulting" target="_blank" class="partner-social-icon" title="Instagram VKO Consulting">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/vkoconsulting" target="_blank" class="partner-social-icon" title="Facebook VKO Consulting">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/vkoconsulting" target="_blank" class="partner-social-icon" title="LinkedIn VKO Consulting">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/vkoconsulting" target="_blank" class="partner-social-icon" title="X (Twitter) VKO Consulting">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/vkoconsulting" target="_blank" class="partner-social-icon" title="YouTube VKO Consulting">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 73 Novos Parceiros Fictícios -->
+                    <script>
+                        const segments = [
+                            "Agronegócio e Agricultura", "Alimentação e Bebidas", "Automotivo",
+                            "Construção Civil e Imobiliário", "Educação e Treinamento", "Energia e Utilidades",
+                            "Financeiro e Seguros", "Indústria", "Saúde e Bem-estar",
+                            "Tecnologia e Telecomunicações", "Comércio e Varejo", "Transporte e Logística",
+                            "Turismo e Entretenimento", "Serviços Profissionais e Corporativos",
+                            "Arte, Cultura e Design", "Setor Público e Organizações Sociais"
+                        ];
+                        const partnersGrid = document.getElementById('partners-grid');
+
+                        for (let i = 1; i <= 73; i++) {
+                            const delay = 1000 + (i * 50); // Increment delay for AOS animation
+                            const partnerName = `Parceiro Fictício ${i}`;
+                            const logoColor = i % 2 === 0 ? '0056B3' : 'A0A0A0';
+                            const textColor = 'FFFFFF';
+                            const segment = segments[i % segments.length]; // Cycle through segments
+                            const whatsappNumber = `55119${String(100000000 + i).slice(-8)}`; // Fictitious number
+
+                            const partnerHtml = `
+                                <div class="partner-card" data-aos="fade-up" data-aos-delay="${delay}" data-segment="${segment}">
+                                    <img src="https://placehold.co/150x80/${logoColor}/${textColor}?text=${encodeURIComponent(partnerName)}+LOGO" alt="Logo do ${partnerName}" class="partner-logo">
+                                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-3">${partnerName}</h3>
+                                    <p class="text-gray-700 leading-relaxed mb-4">
+                                        Serviços de consultoria e soluções inovadoras para o seu negócio no segmento de ${segment.toLowerCase()}, focando em eficiência e crescimento sustentável.
+                                    </p>
+                                    <a href="https://wa.me/${whatsappNumber}?text=Olá! Gostaria de saber mais sobre os serviços do ${partnerName}." target="_blank" class="partner-whatsapp-btn">
+                                        <i class="fab fa-whatsapp mr-2"></i> Contato ${partnerName}
+                                    </a>
+                                    <div class="flex space-x-4 mt-4">
+                                        <a href="https://www.siteficticio${i}.com.br" target="_blank" class="partner-social-icon" title="Visitar Site ${partnerName}">
+                                            <i class="fas fa-globe"></i>
+                                        </a>
+                                        <a href="https://instagram.com/parceiroficticio${i}" target="_blank" class="partner-social-icon" title="Instagram ${partnerName}">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="https://facebook.com/parceiroficticio${i}" target="_blank" class="partner-social-icon" title="Facebook ${partnerName}">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://linkedin.com/company/parceiroficticio${i}" target="_blank" class="partner-social-icon" title="LinkedIn ${partnerName}">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="https://twitter.com/parceiroficticio${i}" target="_blank" class="partner-social-icon" title="X (Twitter) ${partnerName}">
+                                            <i class="fab fa-x-twitter"></i>
+                                        </a>
+                                        <a href="https://youtube.com/parceiroficticio${i}" target="_blank" class="partner-social-icon" title="YouTube ${partnerName}">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            `;
+                            partnersGrid.insertAdjacentHTML('beforeend', partnerHtml);
+                        }
+                    </script>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/5512996512221?text=Olá! Tire suas dúvidas agora." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl animate-pulse-whatsapp transition duration-300 ease-in-out z-50">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </main>
+
+    <!-- Footer - Mantido para consistência -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center md:flex md:justify-between md:items-center">
+            <div class="mb-6 md:mb-0 md:text-left">
+                <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/3-logo-gaujo-redimensionado.png" alt="Logo da GAUJO" class="h-10 mb-4 mx-auto md:mx-0" onerror="this.onerror=null;this.src='https://placehold.co/150x40/A0A0A0/FFFFFF?text=GAUJO+LOGO';">
+                <p class="text-sm text-gray-400">GAUJO® 2009-2025 - Todos os direitos reservados.</p>
+                <p class="text-sm text-gray-400 mt-1">Desenvolvido por: Isaias Heber, GAUJO.</p>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-4 md:gap-x-8 mb-6 md:mb-0">
+                <!-- Links no rodapé devem ser absolutos para o Google Sites -->
+                <a href="[URL_DA_SUA_PAGINA_PRINCIPAL_NO_GOOGLE_SITES]#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
+                <a href="[URL_DA_SUA_PAGINA_PRINCIPAL_NO_GOOGLE_SITES]#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                <a href="[URL_DA_SUA_PAGINA_PRINCIPAL_NO_GOOGLE_SITES]#services-overview" class="text-gray-300 hover:text-white transition duration-300">Nossos Serviços</a>
+                <a href="[URL_DA_SUA_PAGINA_PRINCIPAL_NO_GOOGLE_SITES]#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+                <a href="[URL_DA_SUA_PAGINA_PRINCIPAL_NO_GOOGLE_SITES]nossa-historia.html" class="text-gray-300 hover:text-white transition duration-300">Nossa História</a>
+                <a href="[URL_DA_SUA_PAGINA_PRINCIPAL_NO_GOOGLE_SITES]missao-visao-valores.html" class="text-gray-300 hover:text-white transition duration-300">Missão, Visão e Valores</a>
+                <a href="[URL_DA_SUA_PAGINA_PRINCIPAL_NO_GOOGLE_SITES]brand-page.html" class="text-gray-300 hover:text-white transition duration-300">Nossa Marca</a>
+            </div>
+            <div class="flex justify-center md:justify-end space-x-6 mt-6 md:mt-0">
+                <a href="https://instagram.com/gaujoconsultoria" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/gaujoconsultoria" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/gaujoconsultoria" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/gaujoconsultoria" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://youtube.com/gaujoconsultoria" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, /* Whether animation should happen only once - while scrolling down */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+
+        // JavaScript para o filtro de segmentos
+        document.addEventListener('DOMContentLoaded', function() {
+            const segmentFilter = document.getElementById('segmentFilter');
+            const partnersGrid = document.getElementById('partners-grid');
+            const partnerCards = partnersGrid.querySelectorAll('.partner-card');
+
+            segmentFilter.addEventListener('change', function() {
+                const selectedSegment = this.value;
+
+                partnerCards.forEach(card => {
+                    const cardSegment = card.dataset.segment;
+                    if (selectedSegment === 'all' || cardSegment === selectedSegment) {
+                        card.classList.remove('hidden'); // Exibe o cartão, permitindo que a grade se reorganize
+                    } else {
+                        card.classList.add('hidden'); // Oculta o cartão, removendo-o do fluxo de layout
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

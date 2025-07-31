@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Criptografado com CPF</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+    h1 { color: #333; }
+    label { display:block; margin-top: 15px; font-weight: bold; }
+    input, textarea, button { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+    button { background: #007bff; color: white; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    #qrcode { margin-top: 20px; background: white; padding: 10px; display:inline-block; text-align:center; }
+    #secretKeyDisplay { margin-top: 10px; font-weight: bold; color: #d9534f; word-break: break-all; }
+    canvas { background:white; }
+    .section { background: white; padding: 15px; margin-top: 20px; border-radius: 5px; box-shadow: 0 0 5px #ccc; }
+  </style>
+</head>
+<body>
+
+<h1>QR Code Criptografado (CPF + Data/Hora)</h1>
+
+<div class="section">
+  <h2>Gerar QR Code</h2>
+  <label for="cpf">CPF:</label>
+  <input type="text" id="cpf" placeholder="Digite o CPF (com ou sem pontuação)">
+  <button onclick="gerarQRCode()">Gerar QR Code</button>
+  <div id="qrcode">
+    <canvas id="canvas"></canvas>
+    <div id="secretKeyDisplay"></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Descriptografar Texto</h2>
+  <label for="encryptedText">Texto criptografado:</label>
+  <textarea id="encryptedText" rows="4" placeholder="Cole aqui o conteúdo lido do QR Code"></textarea>
+
+  <label for="secretKeyDecrypt">Chave secreta (AES):</label>
+  <input type="text" id="secretKeyDecrypt" placeholder="Mesma chave usada para gerar">
+
+  <button onclick="descriptografar()">Descriptografar</button>
+
+  <label>Texto original:</label>
+  <textarea id="resultado" rows="2" readonly></textarea>
+</div>
+
+<script>
+  function limparCPF(cpfInput) {
+    return cpfInput.replace(/\D/g, '');
+  }
+
+  function gerarCodigo(cpf) {
+    const agora = new Date();
+    const ano = agora.getFullYear();
+    const mes = String(agora.getMonth() + 1).padStart(2, '0');
+    const dia = String(agora.getDate()).padStart(2, '0');
+    const hora = String(agora.getHours()).padStart(2, '0');
+    const min = String(agora.getMinutes()).padStart(2, '0');
+    const seg = String(agora.getSeconds()).padStart(2, '0');
+    return `ga-${cpf}${ano}${mes}${dia}${hora}${min}${seg}`;
+  }
+
+  function gerarChaveSecreta() {
+    return 'KEY-' + Math.random().toString(36).substring(2, 10) + Date.now();
+  }
+
+  function criptografar(texto, chave) {
+    return CryptoJS.AES.encrypt(texto, chave).toString();
+  }
+
+  function descriptografarTexto(texto, chave) {
+    try {
+      const bytes = CryptoJS.AES.decrypt(texto, chave);
+      const original = bytes.toString(CryptoJS.enc.Utf8);
+      return original && original.length > 0 ? original : "Chave incorreta ou dados inválidos.";
+    } catch (e) {
+      console.error(e);
+      return "Erro ao descriptografar.";
+    }
+  }
+
+  function gerarQRCode() {
+    let cpfBruto = document.getElementById('cpf').value;
+    cpfBruto = limparCPF(cpfBruto);
+
+    if (!cpfBruto || !/^\d{11}$/.test(cpfBruto)) {
+      alert('Informe um CPF válido com 11 dígitos.');
+      return;
+    }
+
+    const chave = gerarChaveSecreta();
+    const codigo = gerarCodigo(cpfBruto);
+    const criptografado = criptografar(codigo, chave);
+
+    new QRious({
+      element: document.getElementById('canvas'),
+      value: criptografado,
+      size: 250,
+      level: 'L'
+    });
+
+    document.getElementById('secretKeyDisplay').innerText = "Chave gerada: " + chave;
+    // Preenche campo de descriptografia com valores para teste
+    document.getElementById('encryptedText').value = criptografado;
+    document.getElementById('secretKeyDecrypt').value = chave;
+  }
+
+  function descriptografar() {
+    const texto = document.getElementById('encryptedText').value.trim();
+    const chave = document.getElementById('secretKeyDecrypt').value.trim();
+
+    if (!texto || !chave) {
+      alert('Informe o texto criptografado e a chave.');
+      return;
+    }
+
+    const resultado = descriptografarTexto(texto, chave);
+    document.getElementById('resultado').value = resultado;
+  }
+</script>
+
+</body>
+</html>

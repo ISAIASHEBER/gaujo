@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAUJO Consultoria Empresarial - Serviços MEI e Proposta</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary-blue: #0056B3; /* Royal Blue from logo */
+            --color-secondary-grey: #A0A0A0; /* Metallic Grey from logo */
+            --color-gradient-start: #0056B3;
+            --color-gradient-end: #A0A0A0;
+        }
+
+        /* Custom gradient for buttons and titles */
+        .bg-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+        }
+        .text-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* Custom fonts */
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004494;
+        }
+
+        /* WhatsApp button pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero section static image (if used on the main page) */
+        .hero-static-image {
+            width: 100%;
+            height: 400px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            filter: brightness(0.7); /* Slightly darken the image for text readability */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+            max-height: 90vh; /* Limit height to allow scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Form input styling */
+        .form-input {
+            @apply w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200;
+        }
+        .form-label {
+            @apply block text-gray-700 text-sm font-semibold mb-2;
+        }
+        .alert-box {
+            @apply p-4 rounded-lg text-sm mb-6;
+        }
+        .alert-info {
+            @apply bg-blue-100 text-blue-800 border border-blue-200;
+        }
+        .alert-warning {
+            @apply bg-yellow-100 text-yellow-800 border border-yellow-200;
+        }
+
+        /* Print specific styles */
+        @media print {
+            body > *:not(#component-container) {
+                display: none !important; /* Hide everything not in the main component container */
+            }
+            #component-container {
+                display: block !important; /* Show the main component container */
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                font-size: 12pt;
+                color: #000;
+            }
+            #component-container .no-print {
+                display: none !important; /* Hide elements specifically marked as no-print */
+            }
+            #component-container .print-only {
+                display: block !important; /* Show elements specifically marked as print-only */
+            }
+            /* Ensure form inputs and labels are hidden in print */
+            .form-input, .form-label, button, .alert-box {
+                display: none !important;
+            }
+            h1, h2, h3, h4, p, ul, li {
+                color: #000 !important; /* Ensure black text for printing */
+            }
+            .text-gradient-ga {
+                -webkit-text-fill-color: #000 !important; /* Ensure gradient text is black */
+                color: #000 !important;
+            }
+            .bg-gradient-ga {
+                background-image: none !important;
+                background-color: #0056B3 !important; /* Solid color for print */
+                color: #fff !important;
+            }
+            .shadow-md, .shadow-xl {
+                box-shadow: none !important; /* Remove shadows for cleaner print */
+            }
+            .rounded-lg, .rounded-full {
+                border-radius: 0 !important; /* Remove rounded corners for cleaner print */
+            }
+            .container {
+                max-width: none !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+            section {
+                padding: 1cm !important; /* Add some padding to sections for print */
+            }
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                filter: none !important; /* Remove brightness filter for print */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Componente principal que contém tudo -->
+<div id="component-container">
+
+    <!-- Botão para acionar o modal -->
+    <div class="text-center py-8">
+        <button type="button" id="openProposalModal" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+            <i class="fas fa-file-signature mr-2"></i> Solicitar Proposta Personalizada
+        </button>
+    </div>
+
+    <!-- Section para exibir a proposta gerada (inicialmente oculta) -->
+    <section id="generated-proposal-display" class="py-16 md:py-24 bg-gray-50 hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gradient-ga mb-6">Sua Proposta Gerada</h2>
+                <p class="text-lg text-gray-700">Revise os detalhes abaixo. Você pode imprimir ou salvar este documento.</p>
+                <button type="button" id="printGeneratedProposal" class="inline-block px-8 py-4 mt-6 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                    <i class="fas fa-print mr-2"></i> Imprimir Proposta
+                </button>
+                <button type="button" id="editProposal" class="inline-block px-8 py-4 mt-6 ml-4 bg-gray-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                    <i class="fas fa-edit mr-2"></i> Editar Proposta
+                </button>
+            </div>
+
+            <!-- Conteúdo da proposta será injetado aqui -->
+            <div id="proposal-content-area" class="p-8 bg-white rounded-lg shadow-md">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- The Modal (Pop-up para o formulário) -->
+    <div id="proposalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <h2 class="text-3xl font-playfair font-bold text-center text-gradient-ga mb-8">Preencha seus Dados para a Proposta</h2>
+            <form id="modalProposalForm" class="space-y-6">
+                <!-- Dados do Cliente -->
+                <h3 class="text-xl font-playfair font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-user-circle text-blue-600 mr-2"></i> Suas Informações Pessoais
+                </h3>
+                <div class="mb-4">
+                    <label for="modalClientNameIntro" class="form-label">Nome Completo / Razão Social:</label>
+                    <input type="text" id="modalClientNameIntro" name="clientNameIntro" class="form-input" placeholder="Seu Nome ou Nome da Empresa" required>
+                </div>
+                <div class="mb-4">
+                    <label for="modalClientDoc" class="form-label">CPF / CNPJ:</label>
+                    <input type="text" id="modalClientDoc" name="clientDoc" class="form-input" placeholder="Seu CPF ou CNPJ do MEI" required>
+                </div>
+                <div class="mb-4">
+                    <label for="modalClientAddress" class="form-label">Endereço Completo:</label>
+                    <textarea id="modalClientAddress" name="clientAddress" class="form-input" rows="2" placeholder="Seu Endereço Completo" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="modalClientEmail" class="form-label">E-mail:</label>
+                    <input type="email" id="modalClientEmail" name="clientEmail" class="form-input" placeholder="Seu E-mail" required>
+                </div>
+                <div class="mb-4">
+                    <label for="modalClientPhone" class="form-label">Telefone:</label>
+                    <input type="tel" id="modalClientPhone" name="clientPhone" class="form-input" placeholder="Seu Telefone (com DDD)" required>
+                </div>
+                <div class="mb-6">
+                    <label for="modalClientRepresentative" class="form-label">Representado por (se aplicável):</label>
+                    <input type="text" id="modalClientRepresentative" name="clientRepresentative" class="form-input" placeholder="Nome do Representante Legal">
+                </div>
+
+                <!-- Condições da Proposta -->
+                <h3 class="text-xl font-playfair font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-hand-holding-usd text-blue-600 mr-2"></i> Condições da Proposta
+                </h3>
+                <div class="mb-4">
+                    <label for="modalMonthlyFee" class="form-label">Honorários Mensais (R$):</label>
+                    <input type="number" id="modalMonthlyFee" name="monthlyFee" class="form-input" step="0.01" min="0" placeholder="Ex: 150.00" required>
+                </div>
+                <div class="mb-4">
+                    <label for="modalMonthlyFeeExtenso" class="form-label">Honorários Mensais (por extenso):</label>
+                    <input type="text" id="modalMonthlyFeeExtenso" name="monthlyFeeExtenso" class="form-input" placeholder="Ex: Cento e cinquenta reais" required>
+                </div>
+                <div class="mb-4">
+                    <label for="modalPaymentMethod" class="form-label">Forma de Pagamento:</label>
+                    <select id="modalPaymentMethod" name="paymentMethod" class="form-input" required>
+                        <option value="">Selecione a forma de pagamento</option>
+                        <option value="Boleto bancário">Boleto bancário</option>
+                        <option value="PIX">PIX</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Transferência Bancária">Transferência Bancária</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="modalPaymentDay" class="form-label">Data de Vencimento (dia do mês):</label>
+                    <input type="number" id="modalPaymentDay" name="paymentDay" class="form-input" value="10" min="1" max="31" required>
+                </div>
+                <div class="mb-6">
+                    <label for="modalPaymentObservations" class="form-label">Observações sobre pagamento (opcional):</label>
+                    <textarea id="modalPaymentObservations" name="paymentObservations" class="form-input" rows="2" placeholder="Detalhes sobre reajustes anuais, valores para serviços avulsos não inclusos, etc."></textarea>
+                </div>
+
+                <div class="text-center mt-8">
+                    <button type="submit" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                        <i class="fas fa-file-alt mr-2"></i> Gerar Proposta
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div> <!-- Fim do component-container -->
+
+<script>
+    // Function to format date as DD/MM/YYYY
+    function formatDate(date) {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    }
+
+    // Modal functionality
+    const proposalModal = document.getElementById('proposalModal');
+    const openProposalModalBtn = document.getElementById('openProposalModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const modalProposalForm = document.getElementById('modalProposalForm');
+    const generatedProposalDisplay = document.getElementById('generated-proposal-display');
+    const proposalContentArea = document.getElementById('proposal-content-area');
+    const printGeneratedProposalBtn = document.getElementById('printGeneratedProposal');
+    const editProposalBtn = document.getElementById('editProposal');
+
+    // GAUJO's fixed data
+    const GAUJO_CNPJ = 'XX.XXX.XXX/XXXX-XX'; // Substitua pelo CNPJ real
+    const GAUJO_REPRESENTATIVE = 'Isaias Heber de Araujo'; // Substitua pelo nome real do representante
+
+    let currentProposalData = {}; // Variable to store the current proposal data
+
+    // Event listener for the "Solicitar Proposta Personalizada" button
+    if (openProposalModalBtn) {
+        openProposalModalBtn.onclick = function() {
+            proposalModal.style.display = "flex"; // Use flex to center the modal content
+            modalProposalForm.reset(); // Clear form fields when opening initially
+            // Hide the generated proposal section if it's currently visible
+            generatedProposalDisplay.classList.add('hidden');
+        }
+    }
+
+    // Event listener for the close button inside the modal
+    if (closeModalBtn) {
+        closeModalBtn.onclick = function() {
+            proposalModal.style.display = "none";
+        }
+    }
+
+    // Event listener for clicking outside the modal content to close it
+    if (proposalModal) {
+        window.onclick = function(event) {
+            if (event.target == proposalModal) {
+                proposalModal.style.display = "none";
+            }
+        }
+    }
+
+    // Handle form submission to generate proposal content on the same page
+    if (modalProposalForm) {
+        modalProposalForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(modalProposalForm);
+            const data = {};
+            for (const [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            // Fixed proposal conditions (can be made dynamic if needed)
+            data['proposalValidity'] = '30';
+            data['contractDuration'] = '12 meses';
+            data['noticePeriod'] = '30';
+            data['forumLocation'] = 'São José dos Campos/SP';
+
+            currentProposalData = data; // Store the data for potential editing
+
+            renderProposalContent(data); // Render the proposal
+            proposalModal.style.display = "none"; // Hide the modal
+            generatedProposalDisplay.classList.remove('hidden'); // Show the generated proposal section
+            window.scrollTo({ top: generatedProposalDisplay.offsetTop, behavior: 'smooth' }); // Scroll to the generated proposal
+        });
+    }
+
+    // Event listener for the "Imprimir Proposta" button on the generated proposal section
+    if (printGeneratedProposalBtn) {
+        printGeneratedProposalBtn.addEventListener('click', function() {
+            window.print();
+        });
+    }
+
+    // Event listener for the "Editar Proposta" button
+    if (editProposalBtn) {
+        editProposalBtn.addEventListener('click', function() {
+            // Hide the generated proposal display
+            generatedProposalDisplay.classList.add('hidden');
+
+            // Show the modal again
+            proposalModal.style.display = "flex";
+
+            // Populate the form fields with the current proposal data
+            if (currentProposalData) {
+                document.getElementById('modalClientNameIntro').value = currentProposalData.clientNameIntro || '';
+                document.getElementById('modalClientDoc').value = currentProposalData.clientDoc || '';
+                document.getElementById('modalClientAddress').value = currentProposalData.clientAddress || '';
+                document.getElementById('modalClientEmail').value = currentProposalData.clientEmail || '';
+                document.getElementById('modalClientPhone').value = currentProposalData.clientPhone || '';
+                document.getElementById('modalClientRepresentative').value = currentProposalData.clientRepresentative || '';
+                document.getElementById('modalMonthlyFee').value = currentProposalData.monthlyFee || '';
+                document.getElementById('modalMonthlyFeeExtenso').value = currentProposalData.monthlyFeeExtenso || '';
+                document.getElementById('modalPaymentMethod').value = currentProposalData.paymentMethod || '';
+                document.getElementById('modalPaymentDay').value = currentProposalData.paymentDay || '';
+                document.getElementById('modalPaymentObservations').value = currentProposalData.paymentObservations || '';
+            }
+        });
+    }
+
+    // Function to render the proposal content into the designated area
+    function renderProposalContent(data) {
+        const proposalDate = formatDate(new Date());
+
+        proposalContentArea.innerHTML = `
+            <div style="text-align: center; margin-bottom: 2cm;">
+                <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/3-logo-gaujo-redimensionado.png" alt="" style="height: 60px; margin-bottom: 10px;">
+                <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5em; color: #0056B3;">Proposta de Serviços MEI</h1>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; color: #333;">Sua parceria estratégica para o sucesso do Microempreendedor Individual.</p>
+            </div>
+
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8em; color: #0056B3; margin-bottom: 1cm;">Detalhes da Proposta</h2>
+
+            <div style="margin-bottom: 1.5cm; padding: 1cm; border: 1px solid #eee; border-radius: 8px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5em; color: #0056B3; margin-bottom: 0.8cm;">1. Introdução</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.6;">
+                    Prezado(a) <strong>${data.clientNameIntro}</strong>,
+                </p>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.6; margin-top: 0.5cm;">
+                    A GAUJO Consultoria Empresarial tem a satisfação de apresentar esta proposta de prestação de serviços de assessoria completa, dedicada a otimizar a gestão e conformidade do seu Microempreendedor Individual (MEI). Nosso compromisso é simplificar os processos burocráticos, garantir a sua tranquilidade e impulsionar o crescimento sustentável do seu negócio, alinhados com os mais altos padrões de ética e excelência que norteiam nossa atuação.
+                </p>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.6; margin-top: 0.5cm;">
+                    Esta proposta detalha os serviços inclusos, a forma de prestação e as regras gerais que regerão nossa parceria, sempre em conformidade com as diretrizes do Código Civil Brasileiro e a legislação específica do MEI.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 1.5cm; padding: 1cm; border: 1px solid #eee; border-radius: 8px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5em; color: #0056B3; margin-bottom: 0.8cm;">2. Identificação das Partes</h3>
+                <div style="display: flex; justify-content: space-between; gap: 2cm;">
+                    <div style="flex: 1;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">Contratada: GAUJO Consultoria Empresarial</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.8;">
+                            <li><strong>Nome/Razão Social:</strong> GAUJO Consultoria Empresarial</li>
+                            <li><strong>CNPJ:</strong> ${GAUJO_CNPJ}</li>
+                            <li><strong>Endereço:</strong> Atendimento 100% online para todo o Brasil.</li>
+                            <li><strong>Contato:</strong> contato@gaujo.com.br</li>
+                            <li><strong>Telefone:</strong> +55 (12) 99651-2221</li>
+                            <li><strong>Representada por:</strong> ${GAUJO_REPRESENTATIVE}</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">Contratante:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.8;">
+                            <li><strong>Nome Completo / Razão Social:</strong> ${data.clientFullName || data.clientNameIntro}</li>
+                            <li><strong>CPF / CNPJ:</strong> ${data.clientDoc}</li>
+                            <li><strong>Endereço Completo:</strong> ${data.clientAddress}</li>
+                            <li><strong>E-mail:</strong> ${data.clientEmail}</li>
+                            <li><strong>Telefone:</strong> ${data.clientPhone}</li>
+                            <li><strong>Representado por:</strong> ${data.clientRepresentative || 'Não informado'}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 1.5cm; padding: 1cm; border: 1px solid #eee; border-radius: 8px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5em; color: #0056B3; margin-bottom: 0.8cm;">3. Objeto da Proposta: Serviços de Assessoria para MEI</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.6; margin-bottom: 0.8cm;">
+                    A GAUJO Consultoria Empresarial se compromete a prestar os seguintes serviços de assessoria para o Microempreendedor Individual (MEI) do Contratante, de forma abrangente e especializada:
+                </p>
+                <ul style="list-style: none; padding: 0; margin: 0; font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.8;">
+                    <li><strong>3.1. Abertura e Formalização do MEI:</strong> Orientação completa, auxílio na coleta de documentos, registro e formalização no Portal do Empreendedor e emissão do CCMEI.</li>
+                    <li><strong>3.2. Declaração Anual Simplificada (DASN-SIMEI):</strong> Elaboração e transmissão da declaração anual, com base nas informações fornecidas, e acompanhamento dos prazos.</li>
+                    <li><strong>3.3. Emissão de Guias DAS:</strong> Geração e disponibilização mensal das guias DAS para pagamento dos tributos do MEI, com lembretes de vencimento.</li>
+                    <li><strong>3.4. Alteração de Dados Cadastrais do MEI:</strong> Assessoria e execução de alterações no cadastro do MEI (endereço, nome fantasia, CNAE, etc.).</li>
+                    <li><strong>3.5. Baixa e Encerramento do MEI (se necessário):</strong> Orientação e condução do processo de baixa e encerramento, garantindo o cumprimento dos trâmites legais e fiscais.</li>
+                    <li><strong>3.6. Orientação Fiscal e Tributária:</strong> Esclarecimento de dúvidas gerais sobre tributação, limites de faturamento e obrigações fiscais do MEI.</li>
+                    <li><strong>3.7. Suporte para Emissão de Notas Fiscais:</strong> Orientação sobre obrigatoriedade e procedimentos para emissão de notas fiscais, conforme a legislação.</li>
+                    <li><strong>3.8. Consultoria e Dúvidas Gerais:</strong> Canais de comunicação para sanar dúvidas pontuais relacionadas à gestão do MEI, dentro do escopo dos serviços.</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5cm; padding: 1cm; border: 1px solid #eee; border-radius: 8px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5em; color: #0056B3; margin-bottom: 0.8cm;">4. Forma de Prestação dos Serviços</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.6;">
+                    Os serviços serão prestados de forma <strong>remota e digital</strong>, utilizando as mais modernas ferramentas de comunicação e gestão online. A GAUJO Consultoria Empresarial disponibilizará canais de atendimento (e-mail, WhatsApp, plataformas de reunião online) para comunicação, envio de documentos e esclarecimento de dúvidas, garantindo agilidade e eficiência no atendimento.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 1.5cm; padding: 1cm; border: 1px solid #eee; border-radius: 8px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5em; color: #0056B3; margin-bottom: 0.8cm;">5. Regras Gerais e Condições</h3>
+                <ul style="list-style: none; padding: 0; margin: 0; font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.8;">
+                    <li style="margin-bottom: 0.8cm;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">5.1. Confidencialidade</h4>
+                        <p>A GAUJO Consultoria Empresarial se compromete a manter sigilo absoluto sobre todas as informações e dados fornecidos pelo Contratante, utilizando-os exclusivamente para a prestação dos serviços contratados.</p>
+                    </li>
+                    <li style="margin-bottom: 0.8cm;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">5.2. Prazos</h4>
+                        <p>A GAUJO se compromete a cumprir os prazos legais e fiscais aplicáveis às obrigações do MEI, desde que o Contratante forneça as informações e documentos necessários em tempo hábil.</p>
+                    </li>
+                    <li style="margin-bottom: 0.8cm;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">5.3. Responsabilidades das Partes</h4>
+                        <ul style="list-style: disc; padding-left: 20px; margin: 0; line-height: 1.6;">
+                            <li><strong>Da Contratada (GAUJO):</strong> Prestar os serviços com diligência, ética, conhecimento técnico e dentro dos prazos estabelecidos, utilizando as melhores práticas do mercado.</li>
+                            <li><strong>Do Contratante:</strong> Fornecer todas as informações e documentos solicitados de forma completa e verdadeira, dentro dos prazos estipulados, e realizar os pagamentos das guias DAS e honorários conforme acordado.</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 0.8cm;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">5.4. Vigência e Rescisão</h4>
+                        <p>Esta proposta tem validade de <strong>${data.proposalValidity}</strong> dias a partir da data de emissão.</p>
+                        <p>O contrato de prestação de serviços terá vigência de <strong>${data.contractDuration}</strong> a partir da sua assinatura, renovável automaticamente por iguais períodos, salvo manifestação em contrário de qualquer das partes, com antecedência mínima de <strong>${data.noticePeriod}</strong> dias.</p>
+                        <p style="background-color: #fffbe6; border: 1px solid #ffeeba; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <i class="fas fa-exclamation-triangle mr-2"></i> A rescisão não prejudica as obrigações financeiras pendentes.
+                        </p>
+                    </li>
+                    <li style="margin-bottom: 0.8cm;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">5.5. Valores e Forma de Pagamento</h4>
+                        <p><strong>Honorários Mensais:</strong> R$ ${data.monthlyFee} (por extenso: ${data.monthlyFeeExtenso})</p>
+                        <p><strong>Forma de Pagamento:</strong> ${data.paymentMethod}</p>
+                        <p><strong>Data de Vencimento:</strong> Todo dia ${data.paymentDay} do mês.</p>
+                        ${data.paymentObservations ? `<p><strong>Observações:</strong> ${data.paymentObservations}</p>` : ''}
+                    </li>
+                    <li style="margin-bottom: 0.8cm;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: #333; margin-bottom: 0.5cm;">5.6. Foro</h4>
+                        <p>Fica eleito o foro da comarca de <strong>${data.forumLocation}</strong> para dirimir quaisquer dúvidas ou litígios decorrentes desta proposta e do contrato de prestação de serviços, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5cm; padding: 1cm; border: 1px solid #eee; border-radius: 8px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5em; color: #0056B3; margin-bottom: 0.8cm;">6. Considerações Finais</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.6; margin-bottom: 0.8cm;">
+                    A GAUJO Consultoria Empresarial reitera seu compromisso com a excelência e a construção de parcerias duradouras. Estamos confiantes de que nossa assessoria trará a segurança e a eficiência necessárias para que seu MEI prospere.
+                </p>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1em; line-height: 1.6;">
+                    Colocamo-nos à disposição para quaisquer esclarecimentos e para formalização desta parceria.
+                </p>
+                <div style="text-align: center; margin-top: 1.5cm;">
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; color: #333;">Atenciosamente,</p>
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.8em; font-weight: bold; color: #0056B3; margin-top: 0.5cm;">GAUJO Consultoria Empresarial</p>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 0.9em; color: #555; margin-top: 0.2cm;">Data da Proposta: <span id="proposalDate"></span></p>
+                </div>
+            </div>
+        `;
+        // Update the date in the rendered proposal
+        proposalContentArea.querySelector('#proposalDate').textContent = proposalDate;
+    }
+</script>
+</body>
+</html>

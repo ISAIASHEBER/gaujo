@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - GAUJO Consultoria Empresarial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS (Animate On Scroll) CSS - Mantido para consistência, embora possa não ser estritamente necessário para esta página estática -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration - Mantido para consistência */
+        :root {
+            --color-primary-blue: #0056B3; /* Royal Blue from logo */
+            --color-secondary-grey: #A0A0A0; /* Metallic Grey from logo */
+            --color-gradient-start: #0056B3;
+            --color-gradient-end: #A0A0A0;
+        }
+
+        /* Custom gradient for buttons and titles */
+        .bg-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+        }
+        .text-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* Custom fonts */
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004494;
+        }
+
+        /* WhatsApp button pulse animation - Mantido para consistência */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero section static image - Mantido para consistência */
+        .hero-static-image {
+            width: 100%;
+            height: 400px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            filter: brightness(0.7); /* Slightly darken the image for text readability */
+        }
+
+        /* Print specific styles - Mantido para consistência */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+            }
+            h1, h2, h3, h4, p, ul, li {
+                color: #000 !important; /* Ensure black text for printing */
+            }
+            .text-gradient-ga {
+                -webkit-text-fill-color: #000 !important; /* Ensure gradient text is black */
+                color: #000 !important;
+            }
+            .bg-gradient-ga {
+                background-image: none !important;
+                background-color: #0056B3 !important; /* Solid color for print */
+                color: #fff !important;
+            }
+            .shadow-md, .shadow-xl {
+                box-shadow: none !important; /* Remove shadows for cleaner print */
+            }
+            .rounded-lg, .rounded-full {
+                border-radius: 0 !important; /* Remove rounded corners for cleaner print */
+            }
+            .container {
+                max-width: none !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+            section {
+                padding: 1cm !important; /* Add some padding to sections for print */
+            }
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                filter: none !important; /* Remove brightness filter for print */
+            }
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-800 bg-white">
+
+    <!-- Main content starts directly -->
+    <main>
+        <!-- Hero Section para a Política de Privacidade -->
+        <section id="hero-privacy-policy" class="relative bg-white pt-20 pb-12 md:pt-32 md:pb-20 flex flex-col items-center justify-center min-h-screen-75 overflow-hidden">
+            <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/ga-policy.png" alt="Imagem de fundo abstrata para a página de Política de Privacidade" class="absolute inset-0 hero-static-image">
+            <div class="container mx-auto px-6 text-center z-10 text-white" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold leading-tight mb-6">
+                    Política de Privacidade
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 font-montserrat">
+                    Seus dados protegidos, sua confiança garantida.
+                </p>
+            </div>
+        </section>
+
+        <!-- Conteúdo da Política de Privacidade -->
+        <section id="privacy-content" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-gradient-ga mb-12" data-aos="fade-up">Nossa responsabilidade com a sua privacidade</h2>
+
+                <div class="space-y-8 text-gray-700 leading-relaxed text-lg p-8 bg-white rounded-lg shadow-md">
+                    <p data-aos="fade-up" data-aos-delay="100">
+                        A GAUJO Consultoria Empresarial ("nós", "nosso", "nossa") está comprometida em proteger a sua privacidade. Esta Política de Privacidade descreve como coletamos, usamos, processamos e divulgamos suas informações pessoais em conexão com os serviços que oferecemos, em conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil (Lei nº 13.709/2018).
+                    </p>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-database text-blue-600 mr-3"></i> 1. Informações que Coletamos
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="250">
+                        Coletamos informações para fornecer e melhorar nossos serviços. As categorias de informações que podemos coletar incluem:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4" data-aos="fade-up" data-aos-delay="300">
+                        <li><i class="fas fa-user-circle text-blue-600 mr-2"></i> <strong>Informações de Contato:</strong> Nome, e-mail, telefone, endereço.</li>
+                        <li><i class="fas fa-id-card text-blue-600 mr-2"></i> <strong>Dados de Identificação:</strong> CPF, CNPJ (para MEIs e empresas).</li>
+                        <li><i class="fas fa-money-bill-wave text-blue-600 mr-2"></i> <strong>Dados Financeiros:</strong> Informações de pagamento (ex: dados bancários para emissão de guias, mas não armazenamos dados de cartão de crédito diretamente).</li>
+                        <li><i class="fas fa-chart-line text-blue-600 mr-2"></i> <strong>Dados de Uso:</strong> Informações sobre como você interage com nosso site e serviços (ex: páginas visitadas, tempo de permanência).</li>
+                        <li><i class="fas fa-laptop-code text-blue-600 mr-2"></i> <strong>Dados Técnicos:</strong> Endereço IP, tipo de navegador, sistema operacional.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="350">
+                        <i class="fas fa-cogs text-blue-600 mr-3"></i> 2. Como Usamos Suas Informações
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Utilizamos as informações coletadas para as seguintes finalidades:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4" data-aos="fade-up" data-aos-delay="450">
+                        <li><i class="fas fa-briefcase text-blue-600 mr-2"></i> Prestar os serviços de consultoria e assessoria contratados.</li>
+                        <li><i class="fas fa-users-cog text-blue-600 mr-2"></i> Gerenciar sua conta e fornecer suporte ao cliente.</li>
+                        <li><i class="fas fa-receipt text-blue-600 mr-2"></i> Processar pagamentos e cumprir obrigações fiscais.</li>
+                        <li><i class="fas fa-lightbulb text-blue-600 mr-2"></i> Melhorar nossos serviços e desenvolver novas funcionalidades.</li>
+                        <li><i class="fas fa-comments text-blue-600 mr-2"></i> Comunicar-nos com você sobre atualizações, ofertas e informações relevantes.</li>
+                        <li><i class="fas fa-balance-scale text-blue-600 mr-2"></i> Cumprir obrigações legais e regulatórias.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-share-alt text-blue-600 mr-3"></i> 3. Como Compartilhamos Suas Informações
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="550">
+                        Não vendemos, alugamos ou trocamos suas informações pessoais com terceiros. Podemos compartilhar suas informações nas seguintes circunstâncias:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4" data-aos="fade-up" data-aos-delay="600">
+                        <li><i class="fas fa-handshake text-blue-600 mr-2"></i> Com prestadores de serviços que nos auxiliam na operação de nossos negócios (ex: plataformas de pagamento, serviços de e-mail marketing), sempre sob acordos de confidencialidade.</li>
+                        <li><i class="fas fa-gavel text-blue-600 mr-2"></i> Em resposta a solicitações legais, como intimações ou ordens judiciais.</li>
+                        <li><i class="fas fa-shield-alt text-blue-600 mr-2"></i> Para proteger nossos direitos, privacidade, segurança ou propriedade, ou os de nossos usuários.</li>
+                        <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Com seu consentimento explícito.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="650">
+                        <i class="fas fa-lock text-blue-600 mr-3"></i> 4. Segurança dos Dados
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="700">
+                        Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição. Isso inclui criptografia, firewalls e controles de acesso. No entanto, nenhum sistema é 100% seguro, e não podemos garantir a segurança absoluta de suas informações.
+                    </p>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="750">
+                        <i class="fas fa-user-shield text-blue-600 mr-3"></i> 5. Seus Direitos (LGPD)
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="800">
+                        De acordo com a LGPD, você tem os seguintes direitos em relação aos seus dados pessoais:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4" data-aos="fade-up" data-aos-delay="850">
+                        <li><i class="fas fa-eye text-blue-600 mr-2"></i> Acesso aos dados.</li>
+                        <li><i class="fas fa-edit text-blue-600 mr-2"></i> Correção de dados incompletos, inexatos ou desatualizados.</li>
+                        <li><i class="fas fa-eraser text-blue-600 mr-2"></i> Anonimização, bloqueio ou eliminação de dados desnecessários.</li>
+                        <li><i class="fas fa-exchange-alt text-blue-600 mr-2"></i> Portabilidade dos dados.</li>
+                        <li><i class="fas fa-trash-alt text-blue-600 mr-2"></i> Eliminação de dados pessoais tratados com consentimento.</li>
+                        <li><i class="fas fa-info-circle text-blue-600 mr-2"></i> Informação sobre o compartilhamento de dados.</li>
+                        <li><i class="fas fa-undo-alt text-blue-600 mr-2"></i> Revogação do consentimento.</li>
+                        <li><i class="fas fa-ban text-blue-600 mr-2"></i> Oposição ao tratamento de dados.</li>
+                    </ul>
+                    <p data-aos="fade-up" data-aos-delay="900">
+                        Para exercer qualquer um desses direitos, entre em contato conosco através dos canais indicados nesta política.
+                    </p>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="950">
+                        <i class="fas fa-cookie-bite text-blue-600 mr-3"></i> 6. Cookies e Tecnologias de Rastreamento
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="1000">
+                        Nosso site pode utilizar cookies e tecnologias similares para melhorar sua experiência, analisar o tráfego do site e personalizar conteúdo. Você pode gerenciar suas preferências de cookies através das configurações do seu navegador.
+                    </p>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="1050">
+                        <i class="fas fa-history text-blue-600 mr-3"></i> 7. Alterações Nesta Política
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="1100">
+                        Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos você sobre quaisquer alterações significativas publicando a nova política em nosso site. A data da última atualização será indicada no início do documento.
+                    </p>
+
+                    <h3 class="text-2xl font-playfair font-bold text-gray-800 mb-4 flex items-center" data-aos="fade-up" data-aos-delay="1150">
+                        <i class="fas fa-headset text-blue-600 mr-3"></i> 8. Contato
+                    </h3>
+                    <p data-aos="fade-up" data-aos-delay="1200">
+                        Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade ou sobre nossas práticas de dados, entre em contato conosco:
+                    </p>
+                    <ul class="list-none space-y-2 ml-4" data-aos="fade-up" data-aos-delay="1250">
+                        <li><i class="fas fa-envelope text-blue-600 mr-2"></i> <strong>E-mail:</strong> contato@gaujo.com.br</li>
+                        <li><i class="fab fa-whatsapp text-blue-600 mr-2"></i> <strong>Telefone:</strong> +55 (12) 99651-2221</li>
+                        <li><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> <strong>Endereço:</strong> Atendimento 100% online para todo o Brasil.</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-6 flex items-center" data-aos="fade-up" data-aos-delay="1300">
+                        <i class="fas fa-calendar-alt text-gray-500 mr-2"></i> Última atualização: 26 de Julho de 2025.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/5512996512221?text=Olá! Tire suas dúvidas agora." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl animate-pulse-whatsapp transition duration-300 ease-in-out z-50">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </main>
+
+    <!-- Footer - Mantido para consistência -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center md:flex md:justify-between md:items-center">
+            <div class="mb-6 md:mb-0 md:text-left">
+                <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png" alt="Logo da GAUJO" class="h-10 mb-4 mx-auto md:mx-0" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png';">
+                <p class="text-sm text-gray-400">GAUJO® 2009-2025 - Todos os direitos reservados.</p>
+                <p class="text-sm text-gray-400 mt-1">Desenvolvido por: GAUJO®</p>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-4 md:gap-x-8 mb-6 md:mb-0">
+                <!-- Links no rodapé devem ser absolutos para o Google Sites -->
+                <a href="https://www.gaujo.com.br#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
+                <a href="https://www.gaujo.com.br#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                <a href="https://www.gaujo.com.br#services-overview" class="text-gray-300 hover:text-white transition duration-300">Nossos Serviços</a>
+                <a href="https://www.gaujo.com.br#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+                <a href="https://www.gaujo.com.brnossa-historia.html" class="text-gray-300 hover:text-white transition duration-300">Nossa História</a>
+                <a href="https://www.gaujo.com.brmissao-visao-valores.html" class="text-gray-300 hover:text-white transition duration-300">Missão, Visão e Valores</a>
+                <a href="https://www.gaujo.com.brbrand-page.html" class="text-gray-300 hover:text-white transition duration-300">Nossa Marca</a>
+            </div>
+            <div class="flex justify-center md:justify-end space-x-6 mt-6 md:mt-0">
+                <a href="https://instagram.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate On Scroll) JS - Mantido para consistência -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, /* Whether animation should happen only once - while scrolling down */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+    </script>
+</body>
+</html>

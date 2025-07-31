@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAUJO Consultoria Empresarial - O Significado da Marca</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary-blue: #0056B3; /* Royal Blue from logo */
+            --color-secondary-grey: #A0A0A0; /* Metallic Grey from logo */
+            --color-gradient-start: #0056B3;
+            --color-gradient-end: #A0A0A0;
+        }
+
+        /* Custom gradient for buttons and titles */
+        .bg-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+        }
+        .text-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* Custom fonts */
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004494;
+        }
+
+        /* WhatsApp button pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero section static image */
+        .hero-static-image {
+            width: 100%;
+            height: 400px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            filter: brightness(0.7); /* Slightly darken the image for text readability */
+        }
+
+        /* Blockquote style */
+        blockquote {
+            border-left: 4px solid var(--color-primary-blue);
+            padding-left: 1.5rem;
+            margin: 2rem auto;
+            font-style: italic;
+            color: #4a5568; /* Tailwind gray-700 */
+            max-width: 800px;
+        }
+        blockquote p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-800 bg-white">
+
+    <!-- Main content starts directly -->
+    <main>
+        <!-- Hero Section for O Significado da Marca GAUJO -->
+        <section id="hero-brand" class="relative bg-white pt-20 pb-12 md:pt-32 md:pb-20 flex flex-col items-center justify-center min-h-screen-75 overflow-hidden">
+            <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/ga-brand.png" alt="" class="absolute inset-0 hero-static-image">
+            <div class="container mx-auto px-6 text-center z-10 text-white" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold leading-tight mb-6">
+                    O Significado da marca GAUJO
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 font-montserrat">
+                    Uma jornada visual de resiliência, excelência e um compromisso inegociável.
+                </p>
+                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre a marca GAUJO." target="_blank" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                    Fale Conosco Agora
+                </a>
+            </div>
+        </section>
+
+        <!-- Detailed Brand Story Section -->
+        <section id="detailed-brand" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-gradient-ga mb-12" data-aos="fade-up">A evolução da nossa identidade</h2>
+
+                <!-- Section: Primeira Identidade (2009–2010) -->
+                <div class="mb-16 p-8 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                        <i class="fas fa-gem text-blue-600 mr-3"></i> Primeira identidade (2009–2010)
+                    </h3>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-6">
+                        <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/1-logo-gaujo.png" alt="" class="rounded-lg shadow-md max-w-full h-auto">
+                        <div class="md:w-2/3">
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                O primeiro símbolo da GAUJO — um círculo dourado com o caduceu — representava o caráter essencialmente contábil e consultivo da empresa. Esta fase artesanal traduzia um negócio em formação, ainda em estruturação, mas já alicerçado em propósito.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+                                <li><strong>Cor amarela-dourada:</strong> remetia à prosperidade e energia inicial, carregando a ideia de luz e ambição.</li>
+                                <li><strong>Caduceu:</strong> tradicionalmente ligado à contabilidade e finanças, simbolizando sabedoria técnica e proteção.</li>
+                                <li><strong>Setas ascendentes:</strong> a visão de crescimento contínuo para os clientes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Segunda Identidade (2011–2017) -->
+                <div class="mb-16 p-8 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                        <i class="fas fa-code-branch text-blue-600 mr-3"></i> Segunda identidade (2011–2025)
+                    </h3>
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8 mb-6">
+                        <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/2-logo-gaujo.png" alt="" class="rounded-lg shadow-md max-w-full h-auto">
+                        <div class="md:w-2/3">
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Com a formalização e a expansão para consultoria em tecnologia, a GAUJO contratou uma agência para renovar sua identidade visual. Este novo símbolo marcou a entrada da empresa no ecossistema de tecnologia e TOTVS, ampliando o seu escopo.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+                                <li><strong>Design mais limpo e geometrizado:</strong> expressava profissionalização.</li>
+                                <li><strong>Paleta prata e azul:</strong>
+                                    <ul class="list-circle list-inside ml-4">
+                                        <li>Prata: tecnologia, inovação, precisão.</li>
+                                        <li>Azul: confiança, integridade e seriedade corporativa.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Tipografia firme:</strong> sinal de estrutura sólida.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Terceira Identidade (2025 – Atual) -->
+                <div class="mb-16 p-8 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                        <i class="fas fa-sync-alt text-blue-600 mr-3"></i> Terceira identidade (2025 – Atual)
+                    </h3>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-6">
+                        <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/3-logo-gaujo-redimensionado.png" alt="" class="rounded-lg shadow-md max-w-full h-auto">
+                        <div class="md:w-2/3">
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                O logotipo atual, com a fusão estilizada das iniciais G e A, representa a evolução máxima da marca. Agora, mais do que consultoria, a GAUJO representa estratégia, tecnologia e mentoria de negócios em 360 graus.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+                                <li><strong>Paleta em tons de azul degradê e cinza metálico:</strong>
+                                    <ul class="list-circle list-inside ml-4">
+                                        <li>Azul escuro: profundidade, confiança e estabilidade — um reflexo da ética e solidez cultivadas ao longo de anos.</li>
+                                        <li>Azul claro: abertura para a inovação e modernidade digital.</li>
+                                        <li>Cinza metálico: maturidade e racionalidade estratégica.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Design contemporâneo:</strong> minimalista, internacional e atemporal.</li>
+                                <li><strong>Tipografia refinada:</strong> reforça sofisticação e clareza.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Valores Simbolizados pelas Cores -->
+                <div class="mb-16 p-8 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                        <i class="fas fa-palette text-blue-600 mr-3"></i> Valores simbolizados pelas Cores
+                    </h3>
+                    <ul class="list-none space-y-4 text-gray-700 text-lg max-w-3xl mx-auto">
+                        <li class="flex items-start">
+                            <i class="fas fa-tint text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong>Azul:</strong> lealdade, integridade e tranquilidade. A cor simboliza o compromisso inabalável com a ética e reflete a capacidade da GAUJO de ser um porto seguro para empresas que buscam excelência.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-tint text-gray-600 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong>Cinza metálico:</strong> representa discernimento, estrutura e racionalidade.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-tint text-blue-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong>Gradiente azul:</strong> expressa a evolução constante e a capacidade de inovar sem perder o centro ético.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Section: Compromisso de Lealdade -->
+                <div class="mb-16 p-8 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                        <i class="fas fa-handshake text-blue-600 mr-3"></i> Compromisso de Lealdade
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        A história da GAUJO não é apenas corporativa, é humana. Para Isaias, fundador da marca, a experiência da cisão societária e das dificuldades enfrentadas forjou um valor inegociável: a lealdade acima de qualquer ganho financeiro. A cada atualização da identidade visual, este valor ficou mais claro: a marca deixou de ser apenas uma representação gráfica e tornou-se um selo ético.
+                    </p>
+                    <blockquote class="text-lg md:text-xl font-montserrat text-gray-700">
+                        <p class="mb-2">"A marca GAUJO simboliza mais do que consultoria: é um compromisso pessoal com integridade e responsabilidade em cada relação estabelecida."</p>
+                    </blockquote>
+                </div>
+
+                <!-- Section: Conclusão -->
+                <div class="mb-16 p-8 bg-white rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                        <i class="fas fa-check-circle text-blue-600 mr-3"></i> Conclusão
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        A evolução do logotipo da GAUJO — do símbolo artesanal inicial ao design atual — conta uma história de crescimento técnico, amadurecimento pessoal e estratégico e, sobretudo, de fidelidade aos princípios originais.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        A atual identidade GAUJO sintetiza:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+                        <li><strong>Tradição:</strong> (raízes na contabilidade e consultoria)</li>
+                        <li><strong>Inovação:</strong> (transformação digital e mentoria estratégica)</li>
+                        <li><strong>Valores humanos:</strong> (ética e lealdade como pilares centrais).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (from main page, copied for consistency) -->
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gradient-ga mb-12" data-aos="fade-up">Fale conosco</h2>
+                <div class="flex flex-col items-center space-y-6 text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i> Atendemos todo o Brasil com serviços 100% online.
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fas fa-envelope text-blue-600 mr-3"></i> <a href="mailto:contato@gaujo.com.br" class="hover:text-blue-600 transition duration-300">contato@gaujo.com.br</a>
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fab fa-whatsapp text-blue-600 mr-3"></i> <a href="https://wa.me/5512996512221" target="_blank" class="hover:text-blue-600 transition duration-300">+55 (12) 99651-2221</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center md:flex md:justify-between md:items-center">
+            <div class="mb-6 md:mb-0 md:text-left">
+                <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png" alt="Logo da GAUJO" class="h-10 mb-4 mx-auto md:mx-0" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png';">
+                <p class="text-sm text-gray-400">GAUJO® 2009-2025 - Todos os direitos reservados.</p>
+                <p class="text-sm text-gray-400 mt-1">Desenvolvido por: GAUJO®</p>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-4 md:gap-x-8 mb-6 md:mb-0">
+                <!-- Links no rodapé devem ser absolutos para o Google Sites -->
+                <a href="https://www.gaujo.com.br#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
+                <a href="https://www.gaujo.com.br#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                <a href="https://www.gaujo.com.br#services-overview" class="text-gray-300 hover:text-white transition duration-300">Serviços</a>
+                <a href="https://www.gaujo.com.br#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+                <a href="https://www.gaujo.com.br/history.html" class="text-gray-300 hover:text-white transition duration-300">História</a>
+                <a href="https://www.gaujo.com.br/mission.html" class="text-gray-300 hover:text-white transition duration-300">Missão</a>
+                <a href="https://www.gaujo.com.br/brand.html" class="text-gray-300 hover:text-white transition duration-300">Nossa Marca</a>
+            </div>
+            <div class="flex justify-center md:justify-end space-x-6 mt-6 md:mt-0">
+                <a href="https://instagram.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5512996512221?text=Olá! Tire suas dúvidas agora." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl animate-pulse-whatsapp transition duration-300 ease-in-out z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, /* Whether animation should happen only once - while scrolling down */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+
+        // Smooth scroll for internal links (within this page)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Check if the link is internal to this page
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

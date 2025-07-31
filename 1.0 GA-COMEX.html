@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAUJO Consultoria Empresarial - Assessoria em Importação e Exportação para Pequenas Empresas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary-blue: #0056B3; /* Royal Blue from logo */
+            --color-secondary-grey: #A0A0A0; /* Metallic Grey from logo */
+            --color-gradient-start: #0056B3;
+            --color-gradient-end: #A0A0A0;
+        }
+
+        /* Custom gradient for buttons and titles */
+        .bg-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+        }
+        .text-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* Custom fonts */
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004494;
+        }
+
+        /* WhatsApp button pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero section static image */
+        .hero-static-image {
+            width: 100%;
+            height: 400px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            filter: brightness(0.7); /* Slightly darken the image for text readability */
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-800 bg-white">
+
+    <!-- Main content starts directly -->
+    <main>
+        <!-- Hero Section for Assessoria em Importação e Exportação para Pequenas Empresas -->
+        <section id="hero-importacao-exportacao" class="relative bg-white pt-20 pb-12 md:pt-32 md:pb-20 flex flex-col items-center justify-center min-h-screen-75 overflow-hidden">
+            <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/ga-comex-services.png" alt="" class="absolute inset-0 hero-static-image">
+            <div class="container mx-auto px-6 text-center z-10 text-white" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold leading-tight mb-6">
+                    Comércio Exterior para pequenas empresas
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 font-montserrat">
+                    Expanda seus horizontes. Oferecemos suporte completo para pequenas empresas navegarem com sucesso no comércio internacional.
+                </p>
+                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre a assessoria em importação e exportação." target="_blank" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                    Fale Conosco Agora
+                </a>
+            </div>
+        </section>
+
+        <!-- Detailed Services Section -->
+        <section id="detailed-importacao-exportacao-services" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-gradient-ga mb-12" data-aos="fade-up">Nossos serviços de Comércio Exterior</h2>
+
+                <!-- Category: Planejamento Estratégico e Análise de Mercado -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-compass text-blue-600 mr-3"></i> Planejamento Estratégico e Análise de Mercado
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Consolidated Service Item for Strategy and Market Analysis -->
+                        <div class="bg-white p-8 rounded-lg shadow-md col-span-1 md:col-span-2 lg:col-span-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-chart-line text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Estratégia, Oportunidades e Riscos</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Identificamos oportunidades de mercado para seus produtos, analisamos a concorrência internacional e avaliamos a viabilidade de importação ou exportação. Desenvolvemos estratégias para promover seus produtos no mercado externo (Marketing Internacional) e identificamos e mitigamos os riscos inerentes ao comércio exterior, como riscos cambiais, de crédito e operacionais.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre planejamento estratégico e análise de mercado internacional." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Gestão Operacional e Aduaneira -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-cogs text-blue-600 mr-3"></i> Gestão Operacional e Aduaneira
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Consolidated Service Item for Operational and Customs Management -->
+                        <div class="bg-white p-8 rounded-lg shadow-md col-span-1 md:col-span-2 lg:col-span-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-file-invoice-dollar text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Processos, Documentação e Tributação</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Coordenamos todas as etapas do processo de comércio exterior, desde a identificação de fornecedores/clientes até a entrega final, incluindo gerenciamento de contratos, pagamentos e câmbio. Cuidamos de toda a documentação necessária para a liberação da mercadoria na alfândega, como emissão de documentos, classificação fiscal e pagamento de impostos. Além disso, obtemos as licenças necessárias (como habilitação no Radar) e orientamos sobre regimes aduaneiros especiais como o Drawback, auxiliando na correta aplicação da legislação tributária para otimizar o pagamento de impostos.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre gestão operacional e aduaneira." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Suporte Logístico e Desenvolvimento -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-truck text-blue-600 mr-3"></i> Suporte Logístico e Desenvolvimento
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Consolidated Service Item for Logistics and Development Support -->
+                        <div class="bg-white p-8 rounded-lg shadow-md col-span-1 md:col-span-2 lg:col-span-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-globe-americas text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Logística, Parcerias e Capacitação</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Organizamos o transporte da mercadoria, incluindo escolha do modal, contratação de fretes, seguros e armazenagem. Identificamos e qualificamos potenciais parceiros comerciais no exterior e oferecemos suporte na negociação de contratos e acordos comerciais. Além disso, capacitamos sua equipe com cursos e treinamentos sobre os processos e procedimentos do comércio exterior, e orientamos sobre legislação, normas e melhores práticas para suas operações.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre suporte logístico e desenvolvimento em comércio exterior." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (from main page, copied for consistency) -->
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gradient-ga mb-12" data-aos="fade-up">Fale conosco</h2>
+                <div class="flex flex-col items-center space-y-6 text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i> Atendemos todo o Brasil com serviços 100% online.
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fas fa-envelope text-blue-600 mr-3"></i> <a href="mailto:contato@gaujo.com.br" class="hover:text-blue-600 transition duration-300">contato@gaujo.com.br</a>
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fab fa-whatsapp text-blue-600 mr-3"></i> <a href="https://wa.me/5512996512221" target="_blank" class="hover:text-blue-600 transition duration-300">+55 (12) 99651-2221</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center md:flex md:justify-between md:items-center">
+            <div class="mb-6 md:mb-0 md:text-left">
+                <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png" alt="" class="h-10 mb-4 mx-auto md:mx-0" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png';">
+                <p class="text-sm text-gray-400">GAUJO® 2009-2025 - Todos os direitos reservados.</p>
+                <p class="text-sm text-gray-400 mt-1">Desenvolvido por: GAUJO®</p>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-4 md:gap-x-8 mb-6 md:mb-0">
+                <!-- Links no rodapé devem ser absolutos para o Google Sites -->
+                <a href="https://www.gaujo.com.br#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
+                <a href="https://www.gaujo.com.br#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                <a href="https://www.gaujo.com.br#services-overview" class="text-gray-300 hover:text-white transition duration-300">Nossos Serviços</a>
+                <a href="https://www.gaujo.com.br#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Recursos Úteis</a>
+            </div>
+            <div class="flex justify-center md:justify-end space-x-6 mt-6 md:mt-0">
+                <a href="https://instagram.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5512996512221?text=Olá! Tire suas dúvidas agora." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl animate-pulse-whatsapp transition duration-300 ease-in-out z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, /* Whether animation should happen only once - while scrolling down */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+
+        // Smooth scroll for internal links (within this page)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Check if the link is internal to this page
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

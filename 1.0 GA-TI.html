@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAUJO Consultoria Empresarial - Serviços de Sistemas e Tecnologia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary-blue: #0056B3; /* Royal Blue from logo */
+            --color-secondary-grey: #A0A0A0; /* Metallic Grey from logo */
+            --color-gradient-start: #0056B3;
+            --color-gradient-end: #A0A0A0;
+        }
+
+        /* Custom gradient for buttons and titles */
+        .bg-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+        }
+        .text-gradient-ga {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* Custom fonts */
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004494;
+        }
+
+        /* WhatsApp button pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        .animate-pulse-whatsapp {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero section static image */
+        .hero-static-image {
+            width: 100%;
+            height: 400px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            filter: brightness(0.7); /* Slightly darken the image for text readability */
+        }
+    </style>
+</head>
+<body class="font-montserrat text-gray-800 bg-white">
+
+    <!-- Main content starts directly -->
+    <main>
+        <!-- Hero Section for Serviços de Sistemas e Tecnologia -->
+        <section id="hero-sistemas-tecnologia" class="relative bg-white pt-20 pb-12 md:pt-32 md:pb-20 flex flex-col items-center justify-center min-h-screen-75 overflow-hidden">
+            <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/ga-ti-services.png" alt="" class="absolute inset-0 hero-static-image">
+            <div class="container mx-auto px-6 text-center z-10 text-white" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold leading-tight mb-6">
+                    Serviços de Sistemas e Tecnologia
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 font-montserrat">
+                    Impulsione seu negócio com soluções tecnológicas inovadoras, desde consultoria e implantação de sistemas até desenvolvimento web e segurança da informação.
+                </p>
+                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre os serviços de sistemas e tecnologia." target="_blank" class="inline-block px-8 py-4 bg-gradient-ga text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                    Fale Conosco Agora
+                </a>
+            </div>
+        </section>
+
+        <!-- Detailed Services Section -->
+        <section id="detailed-sistemas-tecnologia-services" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-gradient-ga mb-12" data-aos="fade-up">Nossos serviços de Sistemas e Tecnologia</h2>
+
+                <!-- Category: Consultoria em TI -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-laptop-medical text-blue-600 mr-3"></i> Consultoria em TI
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Service Item: Análise de necessidades -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-search text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Análise de Necessidades</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Avaliamos as necessidades específicas da sua empresa em relação à tecnologia, identificando as soluções mais adequadas para otimizar seus processos e alcançar seus objetivos.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre a análise de necessidades em TI." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Planejamento estratégico -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-sitemap text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Planejamento Estratégico</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Desenvolvemos um plano de ação estratégico para a implementação de novas tecnologias e a otimização dos sistemas existentes, garantindo um roadmap claro para o seu sucesso.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre planejamento estratégico em TI." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Gestão de projetos -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-tasks text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Gestão de Projetos</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Acompanhamos de perto a implementação de seus projetos de TI, garantindo que sejam entregues dentro do prazo e orçamento, com foco na qualidade e nos resultados esperados.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre gestão de projetos em TI." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Treinamento e suporte -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="500">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-chalkboard-teacher text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Treinamento e Suporte</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Oferecemos treinamento completo para seus funcionários sobre o uso das novas tecnologias e fornecemos suporte técnico contínuo para garantir a máxima produtividade.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre treinamento e suporte em TI." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Implantação de Sistemas -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-cogs text-blue-600 mr-3"></i> Implantação de Sistemas
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Service Item: Sistemas de gestão (ERP) -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-building text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Sistemas de Gestão (ERP)</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Implementamos sistemas de gestão empresarial (ERP) para otimizar suas operações financeiras, de estoque, vendas e muito mais, integrando todos os setores da sua empresa.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre implantação de sistemas ERP." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Sistemas de CRM -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-users-gear text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Sistemas de CRM</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Implementamos sistemas de gestão de relacionamento com clientes (CRM) para otimizar o atendimento, fortalecer o relacionamento e impulsionar suas vendas.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre implantação de sistemas CRM." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Software sob medida -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-code text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Software Sob Medida</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Desenvolvemos softwares personalizados para atender às necessidades exclusivas da sua empresa, garantindo soluções que se encaixam perfeitamente nos seus processos.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre software sob medida." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Desenvolvimento de Sites e E-commerce -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-globe text-blue-600 mr-3"></i> Desenvolvimento de Sites e E-commerce
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Service Item: Criação de sites institucionais -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-laptop-code text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Criação de Sites Institucionais</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Criamos sites institucionais atraentes e funcionais para apresentar sua empresa, produtos e serviços, construindo uma presença online profissional e impactante.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre criação de sites institucionais." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Criação de lojas virtuais (e-commerce) -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-store text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Criação de Lojas Virtuais (E-commerce)</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Desenvolvemos plataformas de vendas online completas, com integração de meios de pagamento, gestão de estoque e logística de envio, para você vender mais e com eficiência.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre criação de lojas virtuais." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Marketing digital -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-bullhorn text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Marketing Digital</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Implementamos estratégias de marketing digital eficazes para promover seu site e loja virtual, atraindo mais clientes e impulsionando seu crescimento online.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre marketing digital." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Segurança da Informação -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-shield-alt text-blue-600 mr-3"></i> Segurança da Informação
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Service Item: Implementação de soluções de segurança -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-lock text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Implementação de Soluções de Segurança</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Instalamos firewalls, antivírus e outras ferramentas de segurança robustas para proteger os dados da sua empresa contra ameaças cibernéticas e acessos não autorizados.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre soluções de segurança da informação." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Monitoramento e proteção contra ameaças -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-eye text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Monitoramento e Proteção Contra Ameaças</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Monitoramos continuamente sua rede e sistemas em busca de ameaças e vulnerabilidades, agindo proativamente para proteger seus dados e garantir a integridade da sua infraestrutura.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre monitoramento de ameaças em segurança da informação." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Backup e recuperação de dados -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-database text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Backup e Recuperação de Dados</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Implementamos políticas de backup e recuperação de dados robustas para garantir a continuidade dos seus negócios em caso de falhas, perdas de dados ou desastres.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre backup e recuperação de dados." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Infraestrutura de TI -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-gray-800 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-server text-blue-600 mr-3"></i> Infraestrutura de TI
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Service Item: Instalação e configuração de redes -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-network-wired text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Instalação e Configuração de Redes</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Projetamos e implementamos redes locais (LANs) e redes sem fio (Wi-Fi) seguras e eficientes, garantindo a conectividade e o bom funcionamento da sua infraestrutura.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre instalação e configuração de redes." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Suporte técnico -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-headset text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Suporte Técnico</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Oferecemos suporte técnico especializado para hardware e software, incluindo manutenção de computadores e impressoras, garantindo que seus equipamentos funcionem sem interrupções.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre suporte técnico em TI." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Item: Serviços em nuvem -->
+                        <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-cloud text-5xl text-blue-600 mb-4"></i>
+                                <h4 class="text-xl font-playfair font-semibold text-gray-800 mb-4">Serviços em Nuvem</h4>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                Migramos seus sistemas e dados para a nuvem, oferecendo mais flexibilidade, escalabilidade e segurança para suas operações, permitindo que você acesse suas informações de qualquer lugar.
+                            </p>
+                            <div class="text-center">
+                                <a href="https://wa.me/5512996512221?text=Olá! Gostaria de saber mais sobre serviços em nuvem." target="_blank" class="inline-block px-6 py-3 bg-gradient-ga text-white font-medium rounded-full hover:opacity-90 transition duration-300">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (from main page, copied for consistency) -->
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gradient-ga mb-12" data-aos="fade-up">Fale conosco</h2>
+                <div class="flex flex-col items-center space-y-6 text-lg text-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <p class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i> Atendemos todo o Brasil com serviços 100% online.
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fas fa-envelope text-blue-600 mr-3"></i> <a href="mailto:contato@gaujo.com.br" class="hover:text-blue-600 transition duration-300">contato@gaujo.com.br</a>
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fab fa-whatsapp text-blue-600 mr-3"></i> <a href="https://wa.me/5512996512221" target="_blank" class="hover:text-blue-600 transition duration-300">+55 (12) 99651-2221</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center md:flex md:justify-between md:items-center">
+            <div class="mb-6 md:mb-0 md:text-left">
+                <img src="https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png" alt="" class="h-10 mb-4 mx-auto md:mx-0" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ISAIASHEBER/gaujo/refs/heads/main/logo-gaujo-white-.png';">
+                <p class="text-sm text-gray-400">GAUJO® 2009-2025 - Todos os direitos reservados.</p>
+                <p class="text-sm text-gray-400 mt-1">Desenvolvido por: GAUJO®</p>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-4 md:gap-x-8 mb-6 md:mb-0">
+                <!-- Links no rodapé devem ser absolutos para o Google Sites -->
+                <a href="https://www.gaujo.com.br#home" class="text-gray-300 hover:text-white transition duration-300">Início</a>
+                <a href="https://www.gaujo.com.br#about" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                <a href="https://www.gaujo.com.br#services-overview" class="text-gray-300 hover:text-white transition duration-300">Nossos Serviços</a>
+                <a href="https://www.gaujo.com.br#contact" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Recursos Úteis</a>
+            </div>
+            <div class="flex justify-center md:justify-end space-x-6 mt-6 md:mt-0">
+                <a href="https://instagram.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/gaujoconsulting" target="_blank" class="text-gray-300 hover:text-white transition duration-300 text-2xl"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5512996512221?text=Olá! Tire suas dúvidas agora." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl animate-pulse-whatsapp transition duration-300 ease-in-out z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, /* Whether animation should happen only once - while scrolling down */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+
+        // Smooth scroll for internal links (within this page)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Check if the link is internal to this page
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
